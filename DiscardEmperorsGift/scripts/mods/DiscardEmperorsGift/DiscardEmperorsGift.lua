@@ -66,18 +66,25 @@ end
 -- #########################################
 -- Event Executions
 -- #########################################
+--[[
 function mod.on_game_state_changed(status, state_name)
     local using_message_of_the_day = mod:get("enable_message_of_the_day")
     local quote_number = math.random(1, #heretical_quotes)
     if mod.using_debug_mode then mod:echo("Heretic quote number: "..tostring(quote_number)) end
     if using_message_of_the_day then mod:notify(heretical_quotes[quote_number]) end
 end
-mod.on_game_state_changed("exit", "StateMainMenu")
+mod.on_game_state_changed("exit", "StateMainMenu") -- Upon choosing character
+-- tried StateMainMenuTestify. both just load 2 times at the title lol (1 at start, 1 before char select)
+]]
 
 function mod.on_all_mods_loaded()
     mod:info("DiscardEmperorsGift v"..mod_version.." loaded uwu nya :3")
     get_settings()
-    
+
+    local using_message_of_the_day = mod:get("enable_message_of_the_day")
+    local quote_number = math.random(1, #heretical_quotes)
+    if mod.using_debug_mode then mod:echo("Heretic quote number: "..tostring(quote_number)) end
+    if using_message_of_the_day then mod:notify(heretical_quotes[quote_number]) end
 end
 
 function mod.on_setting_changed()
