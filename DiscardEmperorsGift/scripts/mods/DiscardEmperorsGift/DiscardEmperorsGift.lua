@@ -19,6 +19,7 @@ local heretical_quotes = {
 -- #######
 -- Refresh settings
 --  NOT for performance. I just want to save myself from typing mod:get all the time
+--  These are globals to easily update from inside functions
 -- #######
 function mod.get_settings()
     mod.using_debug_mode = mod:get("enable_debug_mode")
@@ -33,9 +34,10 @@ end
 
 -- #######
 -- Discard Item
+--  scripts/managers/data_service/services/gear_service.lua
 -- #######
 local discard_item = function(id_for_item_to_discard)
-    if mod.using_debug_mode then mod:echo("Discarding item. ID: "..tostring(id_for_item_to_discard))
+    if mod.using_debug_mode then mod:echo("Discarding item. ID: "..tostring(id_for_item_to_discard)) end
 
     if mod.using_messages_discard then mod:echo("+++ HERESY COMMITTED +++") end
 
@@ -56,6 +58,10 @@ local discard_item = function(id_for_item_to_discard)
     -- Discards the fool
     local discard_item_promise = Managers.data_service.gear_service:delete_gear(id_for_item_to_discard)
 end
+
+-- #########################################
+-- Hooks
+-- #########################################
 
 -- #########################################
 -- On Load and Setting Changed
