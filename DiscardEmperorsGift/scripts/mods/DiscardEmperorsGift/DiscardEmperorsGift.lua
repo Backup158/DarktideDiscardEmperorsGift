@@ -72,7 +72,7 @@ function mod.on_all_mods_loaded()
     
     local using_message_of_the_day = mod:get("enable_message_of_the_day")
     local quote_number = math.random(1, #heretical_quotes)
-    if mod.using_debug_mode then mod:echo("Heretic quote number: "..tostring(quote_number))
+    if mod.using_debug_mode then mod:echo("Heretic quote number: "..tostring(quote_number)) end
     if using_message_of_the_day then mod:notify(heretical_quotes[quote_number]) end
 end
 
