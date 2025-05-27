@@ -8,7 +8,7 @@ local widgets_to_add = {
 		default_status = false, 
 	},
 	{
-		name = "enable_messages_start",
+		name = "enable_message_of_the_day",
 		default_status = false, 
 	},
 	{
