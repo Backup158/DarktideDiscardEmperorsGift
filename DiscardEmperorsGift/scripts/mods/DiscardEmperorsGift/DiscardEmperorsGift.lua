@@ -45,13 +45,13 @@ local discard_item = function(id_for_item_to_discard)
     --      Exit if not max level
     local player_is_max_level = true
     if mod.using_max_level_only and not player_is_max_level then
-        if mod.using_debug_mode then mod:echo("Player is not max level. Not discarding")
+        if mod.using_debug_mode then mod:echo("Player is not max level. Not discarding") end
         return
     end
     --      Exit if not weapon
     local item_is_weapon = true
     if mod.using_weapons_only and not item_is_weapon then
-        if mod.using_debug_mode then mod:echo("Item is not weapon (is curio). Not discarding")
+        if mod.using_debug_mode then mod:echo("Item is not weapon (is curio). Not discarding") end
         return
     end
 
