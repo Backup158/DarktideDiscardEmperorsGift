@@ -25,7 +25,9 @@ end
 -- Discard Item
 -- #######
 local discard_item = function(id_for_item_to_discard)
-    if using_messages_discard then mod:echo("+++ HERESY COMMITTED +++") end
+    if mod.using_debug_mode then mod:echo("Discarding item. ID: "..tostring(id_for_item_to_discard))
+
+    if mod.using_messages_discard then mod:echo("+++ HERESY COMMITTED +++") end
     local discard_item_promise = Managers.data_service.gear_service:delete_gear(id_for_item_to_discard)
 end
 
@@ -35,9 +37,11 @@ function mod.on_all_mods_loaded()
     
     local using_messages_start = mod:get("enable_messages_start")
     local quote_number = math.random(1, #heretical_quotes)
+    if mod.using_debug_mode then mod:echo("Heretic quote number: "..tostring(quote_number))
     if using_messages_start then mod:notify(heretical_quotes[quote_number]) end
 end
 
 function mod.on_setting_changed()
     mod.get_settings()
+    if mod.using_debug_mode then mod:echo("Settings changed") end
 end
