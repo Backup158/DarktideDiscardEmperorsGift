@@ -1,9 +1,16 @@
 local mod = get_mod("DiscardEmperorsGift")
 local mod_version = "1.0.0"
+-- Yes this is unnecessary and feature creep. It should be its own mod. Too bad. Suck my juicy hen.
 local heretical_quotes = {
     "I reject the false promises of the carrion god. I shall reap a terrible bounty from the death that I sow in your name, Father Nurgle. Pestilence and death to the weakling Imperium of Man!",
     "Reject the lies of the False Emperor. Embrace your hunger, your lust, your desire. The universe is ours for the taking!",
-    "It is the fate of the weak to die unknown, and the destiny of the strong to rule for eternity. Give me glory, or give me death!",
+    "Destroy, for the sake of Destruction! Kill, for the sake of Killing!", -- ? ; Codex: Chaos Space Marines (4th Edition)
+    "Death the False Emperor!", -- Sevatar, First Captain of the Night Lords ; Codex: Chaos Space Marines (4th Edition)
+    "The minds of gods are not for mortals to know or to judge. Accept that Tzeentch has a place for all of us in his grand scheme, and be happy in the part you have to play.", -- Magnus the Red ; Codex: Chaos Space Marines (4th Edition)
+    "In the embrace of the great Nurgle, I am no longer afraid, for with His pestilential favour I have become that which I once most feared: Death.", -- Kulvain Hestarius of the Death Guard ; Codex: Chaos Space Marines (4th Edition)
+    "The Imperium is a weak old man, ready and waiting to be broken apart.", -- Lufgt Huron, The Tyrant of Badab ; Codex: Chaos Space Marines (6th Edition)
+    "Cast down the idols! Destroy the temples! Slay the priests! Show these fools that they worship nothing more than a rotting corpse!", -- Dark Apostle Harzhan of the Word Bearers; Codex: Chaos Space Marines (4th Edition)
+    
 }
 
 -- #######
