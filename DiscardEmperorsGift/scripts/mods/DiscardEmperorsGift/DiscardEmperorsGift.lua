@@ -30,9 +30,14 @@ local discard_item = function(id_for_item_to_discard)
 end
 
 function mod.on_all_mods_loaded()
+    mod:info("DiscardEmperorsGift v"..mod_version.." loaded uwu nya :3")
+    mod.get_settings()
+    
     local using_messages_start = mod:get("enable_messages_start")
     local quote_number = math.random(1, #heretical_quotes)
-
-    mod:info("DiscardEmperorsGift v"..mod_version.." loaded uwu nya :3")
     if using_messages_start then mod:notify(heretical_quotes[quote_number]) end
+end
+
+function mod.on_setting_changed()
+    mod.get_settings()
 end
