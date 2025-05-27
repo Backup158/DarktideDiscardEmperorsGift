@@ -1,13 +1,18 @@
 local mod = get_mod("DiscardEmperorsGift")
 
 local filled_widgets = {}
+-- That's a few tables but idc the performance impact is one-time and not very different
 local widgets_to_add = {
 	{
 		name = "enable_debug_mode",
 		default_status = false, 
 	},
 	{
-		name = "enable_start_message",
+		name = "enable_messages_start",
+		default_status = false, 
+	},
+	{
+		name = "enable_messages_discard",
 		default_status = false, 
 	},
 	{
