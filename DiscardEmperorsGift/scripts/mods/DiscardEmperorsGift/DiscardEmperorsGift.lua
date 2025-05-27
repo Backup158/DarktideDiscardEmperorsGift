@@ -10,7 +10,10 @@ local heretical_quotes = {
     "In the embrace of the great Nurgle, I am no longer afraid, for with His pestilential favour I have become that which I once most feared: Death.", -- Kulvain Hestarius of the Death Guard ; Codex: Chaos Space Marines (4th Edition)
     "The Imperium is a weak old man, ready and waiting to be broken apart.", -- Lufgt Huron, The Tyrant of Badab ; Codex: Chaos Space Marines (6th Edition)
     "Cast down the idols! Destroy the temples! Slay the priests! Show these fools that they worship nothing more than a rotting corpse!", -- Dark Apostle Harzhan of the Word Bearers; Codex: Chaos Space Marines (4th Edition)
-    
+    "I shall reap a terrible bounty from the death that I sow in your name, Father Nurgle...", -- Typhus the Traveler, Herald of Nurgle ; Codex: Chaos Space Marines (6th Edition)
+    "There, feel the glory of necrosis, and rejoice! Nurgle loves you!", -- Ulkair, Great Unclean One ; Warhammer 40,000: Dawn of War II - Retribution
+    "Sickness, disease, plague and pox, suffering and the slow, living rot. Such wondrous gifts does Nurgle seek to bestow upon the unworthy human cattle of the Imperium. We are merely the vectors by which his virulent beneficence may be spread to the undeserving masses.", -- Urgloth Rotheart, Plague Champion of the Death Guard ; Dark Imperium, Death Guard booklet
+    "Let no good deed go unpunished. Let no evil deed go unrewarded.", -- Codex: Chaos Space Marines (4th Edition)
 }
 
 -- #######
