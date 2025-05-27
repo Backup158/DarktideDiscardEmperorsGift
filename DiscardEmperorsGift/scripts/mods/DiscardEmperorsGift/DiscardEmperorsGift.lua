@@ -21,7 +21,7 @@ local heretical_quotes = {
 --  NOT for performance. I just want to save myself from typing mod:get all the time
 --  These are globals to easily update from inside functions
 -- #######
-function mod.get_settings()
+local function get_settings()
     mod.using_debug_mode = mod:get("enable_debug_mode")
     mod.using_messages_discard = mod:get("enable_messages_discard")
     mod.using_weapons_only = mod:get("enable_weapons_only")
@@ -64,12 +64,11 @@ end
 -- #########################################
 
 -- #########################################
--- On Load and Setting Changed
+-- Event Executions
 -- #########################################
 function mod.on_all_mods_loaded()
     mod:info("DiscardEmperorsGift v"..mod_version.." loaded uwu nya :3")
-    mod.get_settings()
-    
+    get_settings()
     local using_message_of_the_day = mod:get("enable_message_of_the_day")
     local quote_number = math.random(1, #heretical_quotes)
     if mod.using_debug_mode then mod:echo("Heretic quote number: "..tostring(quote_number)) end
@@ -77,6 +76,6 @@ function mod.on_all_mods_loaded()
 end
 
 function mod.on_setting_changed()
-    mod.get_settings()
+    get_settings()
     if mod.using_debug_mode then mod:echo("Settings changed") end
 end
