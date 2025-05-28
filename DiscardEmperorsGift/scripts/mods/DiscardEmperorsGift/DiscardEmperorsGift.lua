@@ -21,6 +21,9 @@ local heretical_quotes = {
 -- #############################
 local EndPlayerView = require("scripts/ui/views/end_player_view/end_player_view")
 
+-- #############################
+-- Helper Functions
+-- #############################
 -- #######
 -- Refresh settings
 --  NOT for performance. I just want to save myself from typing mod:get all the time
