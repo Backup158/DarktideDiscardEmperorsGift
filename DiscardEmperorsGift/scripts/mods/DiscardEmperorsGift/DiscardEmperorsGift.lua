@@ -20,6 +20,7 @@ local heretical_quotes = {
 -- Requirements
 -- #############################
 local EndPlayerView = require("scripts/ui/views/end_player_view/end_player_view")
+local GearService = require("scripts/managers/data_service/services/gear_service")
 
 -- #############################
 -- Helper Functions
@@ -61,7 +62,7 @@ mod.discard_item = function(id_for_item_to_discard)
     -- Discards the fool
     if mod.using_messages_discard then mod:echo("+++ HERESY COMMITTED +++") end
     --      even though it's gear_service lol
-    local discard_item_promise = Managers.data_service.gear:delete_gear(id_for_item_to_discard)
+    local discard_item_promise = GearService:delete_gear(id_for_item_to_discard)
 end
 
 -- #########################################
@@ -73,11 +74,21 @@ end
 --  scripts/ui/views/end_player_view/end_player_view
 -- #######
 mod:hook_safe(EndPlayerView, "_get_item", function (self, card_reward)
+    mod:echo("Haiii!! heyyyy hiiii!!! get item")
     mod.gift_id = card_reward.master_id
     -- Item itself is at MasterItems.get_item(item_id)
     mod.gift_type = item.item_type
     mod.discard_item(mod.gift_id)
 end)
+
+mod:hook_safe(EndPlayerView, "_create_card_widget", function (self, index, card_type, card_data)
+    mod:echo("Haiii!! heyyyy hiiii!!! _create_card_widget")
+    --mod.gift_id = card_reward.master_id
+    -- Item itself is at MasterItems.get_item(item_id)
+    --mod.gift_type = card_type
+   -- mod.discard_item(mod.gift_id)
+end)
+
 -- #########################################
 -- Event Executions
 -- #########################################
