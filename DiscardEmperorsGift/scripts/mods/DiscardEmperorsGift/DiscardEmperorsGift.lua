@@ -38,9 +38,7 @@ end
 --  scripts/managers/data_service/services/gear_service.lua
 -- #######
 mod.discard_item = function(id_for_item_to_discard)
-    if mod.using_debug_mode then mod:echo("Discarding item. ID: "..tostring(id_for_item_to_discard)) end
-
-    if mod.using_messages_discard then mod:echo("+++ HERESY COMMITTED +++") end
+    if mod.using_debug_mode then mod:echo("Starting process to discard item. ID: "..tostring(id_for_item_to_discard)) end
 
     --  Modes: early exits
     --      Exit if not max level
@@ -58,7 +56,9 @@ mod.discard_item = function(id_for_item_to_discard)
     end
 
     -- Discards the fool
-    local discard_item_promise = Managers.data_service.gear_service:delete_gear(id_for_item_to_discard)
+    if mod.using_messages_discard then mod:echo("+++ HERESY COMMITTED +++") end
+    --      even though it's gear_service lol
+    local discard_item_promise = Managers.data_service.gear:delete_gear(id_for_item_to_discard)
 end
 
 -- #########################################
