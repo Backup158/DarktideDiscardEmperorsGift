@@ -16,6 +16,11 @@ local heretical_quotes = {
     "Let no good deed go unpunished. Let no evil deed go unrewarded.", -- Codex: Chaos Space Marines (4th Edition)
 }
 
+-- #############################
+-- Requirements
+-- #############################
+local EndPlayerView = require("scripts/ui/views/end_player_view/end_player_view")
+
 -- #######
 -- Refresh settings
 --  NOT for performance. I just want to save myself from typing mod:get all the time
@@ -29,14 +34,10 @@ local function get_settings()
 end
 
 -- #######
--- Get ID of Emperor's Gift
--- #######
-
--- #######
 -- Discard Item
 --  scripts/managers/data_service/services/gear_service.lua
 -- #######
-local discard_item = function(id_for_item_to_discard)
+mod.discard_item = function(id_for_item_to_discard)
     if mod.using_debug_mode then mod:echo("Discarding item. ID: "..tostring(id_for_item_to_discard)) end
 
     if mod.using_messages_discard then mod:echo("+++ HERESY COMMITTED +++") end
@@ -49,6 +50,7 @@ local discard_item = function(id_for_item_to_discard)
         return
     end
     --      Exit if not weapon
+    if mod.using_debug_mode then mod:echo("Item type is "..tostring(mod.gift_type)) end
     local item_is_weapon = true
     if mod.using_weapons_only and not item_is_weapon then
         if mod.using_debug_mode then mod:echo("Item is not weapon (is curio). Not discarding") end
@@ -63,6 +65,16 @@ end
 -- Hooks
 -- #########################################
 
+-- #######
+-- Get ID of Emperor's Gift
+--  scripts/ui/views/end_player_view/end_player_view
+-- #######
+mod:hook_safe(EndPlayerView, "_get_item", function (self, card_reward)
+    mod.gift_id = card_reward.master_id
+    -- Item itself is at MasterItems.get_item(item_id)
+    mod.gift_type = item.item_type
+    mod.discard_item(mod.gift_id)
+end)
 -- #########################################
 -- Event Executions
 -- #########################################
